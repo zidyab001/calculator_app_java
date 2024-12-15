@@ -1,13 +1,14 @@
 import java.util.Scanner;
 
-public class Calculator {
+public class MyClass{
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        
+
+        System.out.println("\n--- Basic Calculator ---");
+
         while (true) {
-            System.out.println("\n--- Basic Calculator ---");
-            System.out.println("1. Addition");
+            System.out.println("\n1. Addition");
             System.out.println("2. Subtraction");
             System.out.println("3. Multiplication");
             System.out.println("4. Division");
@@ -59,8 +60,17 @@ public class Calculator {
                     validOperation = false;
             }
 
-            if (validOperation) {
-                System.out.println("\nOperation completed successfully.");
+            if (!validOperation) {
+                continue;
+            }
+
+            System.out.println("\nDo you want to perform another calculation? (yes/no): ");
+            scanner.nextLine(); // Consume newline
+            String continueChoice = scanner.nextLine();
+
+            if (!continueChoice.equalsIgnoreCase("yes")) {
+                System.out.println("Exiting the calculator. Goodbye!");
+                break;
             }
         }
 
